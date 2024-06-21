@@ -1,0 +1,16 @@
+C:\Users\shreyas\Projects\Taskman\taskman\TaskMan.API\TaskMan.BusinessObjects\bin\Debug\net8.0\TaskMan.BusinessObjects.deps.json
+C:\Users\shreyas\Projects\Taskman\taskman\TaskMan.API\TaskMan.BusinessObjects\bin\Debug\net8.0\TaskMan.BusinessObjects.dll
+C:\Users\shreyas\Projects\Taskman\taskman\TaskMan.API\TaskMan.BusinessObjects\bin\Debug\net8.0\TaskMan.BusinessObjects.pdb
+C:\Users\shreyas\Projects\Taskman\taskman\TaskMan.API\TaskMan.BusinessObjects\bin\Debug\net8.0\TaskMan.DataAccess.dll
+C:\Users\shreyas\Projects\Taskman\taskman\TaskMan.API\TaskMan.BusinessObjects\bin\Debug\net8.0\TaskMan.DataAccess.pdb
+C:\Users\shreyas\Projects\Taskman\taskman\TaskMan.API\TaskMan.BusinessObjects\obj\Debug\net8.0\TaskMan.BusinessObjects.csproj.AssemblyReference.cache
+C:\Users\shreyas\Projects\Taskman\taskman\TaskMan.API\TaskMan.BusinessObjects\obj\Debug\net8.0\TaskMan.BusinessObjects.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\shreyas\Projects\Taskman\taskman\TaskMan.API\TaskMan.BusinessObjects\obj\Debug\net8.0\TaskMan.BusinessObjects.AssemblyInfoInputs.cache
+C:\Users\shreyas\Projects\Taskman\taskman\TaskMan.API\TaskMan.BusinessObjects\obj\Debug\net8.0\TaskMan.BusinessObjects.AssemblyInfo.cs
+C:\Users\shreyas\Projects\Taskman\taskman\TaskMan.API\TaskMan.BusinessObjects\obj\Debug\net8.0\TaskMan.BusinessObjects.csproj.CoreCompileInputs.cache
+C:\Users\shreyas\Projects\Taskman\taskman\TaskMan.API\TaskMan.BusinessObjects\obj\Debug\net8.0\TaskMan.BusinessObjects.sourcelink.json
+C:\Users\shreyas\Projects\Taskman\taskman\TaskMan.API\TaskMan.BusinessObjects\obj\Debug\net8.0\TaskMan..092F8C38.Up2Date
+C:\Users\shreyas\Projects\Taskman\taskman\TaskMan.API\TaskMan.BusinessObjects\obj\Debug\net8.0\TaskMan.BusinessObjects.dll
+C:\Users\shreyas\Projects\Taskman\taskman\TaskMan.API\TaskMan.BusinessObjects\obj\Debug\net8.0\refint\TaskMan.BusinessObjects.dll
+C:\Users\shreyas\Projects\Taskman\taskman\TaskMan.API\TaskMan.BusinessObjects\obj\Debug\net8.0\TaskMan.BusinessObjects.pdb
+C:\Users\shreyas\Projects\Taskman\taskman\TaskMan.API\TaskMan.BusinessObjects\obj\Debug\net8.0\ref\TaskMan.BusinessObjects.dll

@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "TaskMan.BusinessObjects/1.0.0": {
+        "dependencies": {
+          "TaskMan.DataAccess": "1.0.0"
+        },
+        "runtime": {
+          "TaskMan.BusinessObjects.dll": {}
+        }
+      },
+      "TaskMan.DataAccess/1.0.0": {
+        "runtime": {
+          "TaskMan.DataAccess.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "TaskMan.BusinessObjects/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "TaskMan.DataAccess/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

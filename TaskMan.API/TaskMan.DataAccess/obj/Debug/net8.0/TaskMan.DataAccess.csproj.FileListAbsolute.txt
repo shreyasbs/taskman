@@ -1,0 +1,12 @@
+C:\Users\shreyas\Projects\Taskman\taskman\TaskMan.API\TaskMan.DataAccess\bin\Debug\net8.0\TaskMan.DataAccess.deps.json
+C:\Users\shreyas\Projects\Taskman\taskman\TaskMan.API\TaskMan.DataAccess\bin\Debug\net8.0\TaskMan.DataAccess.dll
+C:\Users\shreyas\Projects\Taskman\taskman\TaskMan.API\TaskMan.DataAccess\bin\Debug\net8.0\TaskMan.DataAccess.pdb
+C:\Users\shreyas\Projects\Taskman\taskman\TaskMan.API\TaskMan.DataAccess\obj\Debug\net8.0\TaskMan.DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\shreyas\Projects\Taskman\taskman\TaskMan.API\TaskMan.DataAccess\obj\Debug\net8.0\TaskMan.DataAccess.AssemblyInfoInputs.cache
+C:\Users\shreyas\Projects\Taskman\taskman\TaskMan.API\TaskMan.DataAccess\obj\Debug\net8.0\TaskMan.DataAccess.AssemblyInfo.cs
+C:\Users\shreyas\Projects\Taskman\taskman\TaskMan.API\TaskMan.DataAccess\obj\Debug\net8.0\TaskMan.DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\shreyas\Projects\Taskman\taskman\TaskMan.API\TaskMan.DataAccess\obj\Debug\net8.0\TaskMan.DataAccess.sourcelink.json
+C:\Users\shreyas\Projects\Taskman\taskman\TaskMan.API\TaskMan.DataAccess\obj\Debug\net8.0\TaskMan.DataAccess.dll
+C:\Users\shreyas\Projects\Taskman\taskman\TaskMan.API\TaskMan.DataAccess\obj\Debug\net8.0\refint\TaskMan.DataAccess.dll
+C:\Users\shreyas\Projects\Taskman\taskman\TaskMan.API\TaskMan.DataAccess\obj\Debug\net8.0\TaskMan.DataAccess.pdb
+C:\Users\shreyas\Projects\Taskman\taskman\TaskMan.API\TaskMan.DataAccess\obj\Debug\net8.0\ref\TaskMan.DataAccess.dll
