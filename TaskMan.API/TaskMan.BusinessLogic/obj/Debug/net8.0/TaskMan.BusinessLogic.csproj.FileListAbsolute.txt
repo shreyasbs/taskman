@@ -16,3 +16,5 @@ C:\Users\shreyas\Projects\Taskman\taskman\TaskMan.API\TaskMan.BusinessLogic\obj\
 C:\Users\shreyas\Projects\Taskman\taskman\TaskMan.API\TaskMan.BusinessLogic\obj\Debug\net8.0\refint\TaskMan.BusinessLogic.dll
 C:\Users\shreyas\Projects\Taskman\taskman\TaskMan.API\TaskMan.BusinessLogic\obj\Debug\net8.0\TaskMan.BusinessLogic.pdb
 C:\Users\shreyas\Projects\Taskman\taskman\TaskMan.API\TaskMan.BusinessLogic\obj\Debug\net8.0\ref\TaskMan.BusinessLogic.dll
+C:\Users\shreyas\Projects\Taskman\taskman\TaskMan.API\TaskMan.BusinessLogic\bin\Debug\net8.0\TaskMan.BusinessObjects.dll
+C:\Users\shreyas\Projects\Taskman\taskman\TaskMan.API\TaskMan.BusinessLogic\bin\Debug\net8.0\TaskMan.BusinessObjects.pdb
