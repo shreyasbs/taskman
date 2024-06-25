@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TaskMan.BusinessObjects\TaskMan.BusinessObjects.csproj" />
+    <ProjectReference Include="..\TaskMan.ViewModels\TaskMan.ViewModels.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1598,6 +1598,16 @@
         "runtime": {
           "bin/placeholder/TaskMan.BusinessObjects.dll": {}
         }
+      },
+      "TaskMan.ViewModels/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/TaskMan.ViewModels.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/TaskMan.ViewModels.dll": {}
+        }
       }
     }
   },
@@ -4288,6 +4298,11 @@
       "type": "project",
       "path": "../TaskMan.BusinessObjects/TaskMan.BusinessObjects.csproj",
       "msbuildProject": "../TaskMan.BusinessObjects/TaskMan.BusinessObjects.csproj"
+    },
+    "TaskMan.ViewModels/1.0.0": {
+      "type": "project",
+      "path": "../TaskMan.ViewModels/TaskMan.ViewModels.csproj",
+      "msbuildProject": "../TaskMan.ViewModels/TaskMan.ViewModels.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -4296,7 +4311,8 @@
       "Microsoft.EntityFrameworkCore >= 8.0.6",
       "Microsoft.EntityFrameworkCore.SqlServer >= 8.0.6",
       "Microsoft.EntityFrameworkCore.Tools >= 8.0.6",
-      "TaskMan.BusinessObjects >= 1.0.0"
+      "TaskMan.BusinessObjects >= 1.0.0",
+      "TaskMan.ViewModels >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -4332,6 +4348,9 @@
           "projectReferences": {
             "C:\\Users\\shreyas\\Projects\\Taskman\\taskman\\TaskMan.API\\TaskMan.BusinessObjects\\TaskMan.BusinessObjects.csproj": {
               "projectPath": "C:\\Users\\shreyas\\Projects\\Taskman\\taskman\\TaskMan.API\\TaskMan.BusinessObjects\\TaskMan.BusinessObjects.csproj"
+            },
+            "C:\\Users\\shreyas\\Projects\\Taskman\\taskman\\TaskMan.API\\TaskMan.ViewModels\\TaskMan.ViewModels.csproj": {
+              "projectPath": "C:\\Users\\shreyas\\Projects\\Taskman\\taskman\\TaskMan.API\\TaskMan.ViewModels\\TaskMan.ViewModels.csproj"
             }
           }
         }

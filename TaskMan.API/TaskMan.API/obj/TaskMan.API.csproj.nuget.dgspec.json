@@ -277,6 +277,9 @@
             "projectReferences": {
               "C:\\Users\\shreyas\\Projects\\Taskman\\taskman\\TaskMan.API\\TaskMan.BusinessObjects\\TaskMan.BusinessObjects.csproj": {
                 "projectPath": "C:\\Users\\shreyas\\Projects\\Taskman\\taskman\\TaskMan.API\\TaskMan.BusinessObjects\\TaskMan.BusinessObjects.csproj"
+              },
+              "C:\\Users\\shreyas\\Projects\\Taskman\\taskman\\TaskMan.API\\TaskMan.ViewModels\\TaskMan.ViewModels.csproj": {
+                "projectPath": "C:\\Users\\shreyas\\Projects\\Taskman\\taskman\\TaskMan.API\\TaskMan.ViewModels\\TaskMan.ViewModels.csproj"
               }
             }
           }

@@ -1606,7 +1606,8 @@
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.6",
           "Microsoft.EntityFrameworkCore": "8.0.6",
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.6",
-          "TaskMan.BusinessObjects": "1.0.0"
+          "TaskMan.BusinessObjects": "1.0.0",
+          "TaskMan.ViewModels": "1.0.0"
         },
         "compile": {
           "bin/placeholder/TaskMan.DataAccess.dll": {}
