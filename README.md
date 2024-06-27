@@ -49,6 +49,7 @@ Run the application:
 dotnet run
 
 3. Frontend Setup
+   
  cd TaskMan
  
  Install dependencies:
