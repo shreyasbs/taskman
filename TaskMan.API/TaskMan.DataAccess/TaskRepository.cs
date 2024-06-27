@@ -3,67 +3,70 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TaskMan.ViewModels;
 
 namespace TaskMan.DataAccess
 {
-    public class TaskRepository : ITaskRepository, IDisposable
+    public class TaskRepository : ITaskRepository
     {
-
-
-        public void DeleteTask(Guid id)
+        private readonly TaskDataContext taskDataContext;
+        public TaskRepository(TaskDataContext _taskDataContext)
         {
-            using (var taskDataContext = new TaskDataContext())
-            {
-                var task = taskDataContext.Tasks.FirstOrDefault(x => x.Id == id);
-                taskDataContext.Tasks.Remove(task);
-            }
-
-        }
-
-        public void Dispose()
-        {
-            GC.SuppressFinalize(this);
-        }
+            taskDataContext = _taskDataContext;
+        }   
 
         public BusinessObjects.Task GetTask(Guid id)
         {
-            using (var taskDataContext = new TaskDataContext())
-            {
-                var task = taskDataContext.Tasks.FirstOrDefault(x => x.Id == id);
-                return task;
-            }
+
+            var task = taskDataContext.Tasks.FirstOrDefault(x => x.Id == id);
+            return task;
 
         }
 
-        public  IEnumerable<BusinessObjects.Task> GetTasks()
+        public IEnumerable<BusinessObjects.Task> GetTasks()
         {
-            using (var taskDataContext = new TaskDataContext())
-            {
-                return taskDataContext.Tasks.ToList();
-            }
+
+            return taskDataContext.Tasks.ToList();
         }
 
-        public void InsertTask(BusinessObjects.Task task)
+        public void InsertTask(TaskViewModel taskViewModel)
         {
-            using (var taskDataContext = new TaskDataContext())
-            {
-                taskDataContext.Tasks.Add(task);
-            }
+            var task = new BusinessObjects.Task();
+            task.Title = taskViewModel.Title;
+            task.Description = taskViewModel.Description;
+            task.Status = (BusinessObjects.TaskStatus) Enum.Parse(typeof(BusinessObjects.TaskStatus), taskViewModel.Status);
+            taskDataContext.Tasks.Add(task);
+            SaveChanges();
         }
 
         public void SaveChanges()
         {
-            using (var taskDataContext = new TaskDataContext())
-            {
-                taskDataContext.SaveChanges();
-            }
+
+            taskDataContext.SaveChanges();
         }
 
-        public void UpdateTask(BusinessObjects.Task task)
+        public void UpdateTask(TaskViewModel taskViewModel)
         {
-            using (var taskDataContext = new TaskDataContext())
+            var task = taskDataContext.Tasks.FirstOrDefault(x=>x.Id == Guid.Parse(taskViewModel.Id));
+            if(task != null)
             {
+                task.Title = taskViewModel.Title;
+                task.Description = taskViewModel.Description;
+                task.Status = (BusinessObjects.TaskStatus)Enum.Parse(typeof(BusinessObjects.TaskStatus), taskViewModel.Status);
                 taskDataContext.Entry(task).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                SaveChanges();
+            }
+
+            
+        }
+
+        public void DeleteTask(Guid guid)
+        {
+            var task = taskDataContext.Tasks.FirstOrDefault(x =>  x.Id == guid);
+            if(task != null)
+            {
+                taskDataContext.Remove(task);
+                SaveChanges();
             }
         }
     }

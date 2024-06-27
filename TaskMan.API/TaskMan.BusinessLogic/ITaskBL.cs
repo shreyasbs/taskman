@@ -11,5 +11,8 @@ namespace TaskMan.BusinessLogic
     {
         List<TaskViewModel> GetAllTasks();
         TaskViewModel GetTask(string id);
+        void Insert(TaskViewModel taskViewModel);
+        void Update(TaskViewModel taskViewModel);
+        void DeleteTask(string id);
     }
 }

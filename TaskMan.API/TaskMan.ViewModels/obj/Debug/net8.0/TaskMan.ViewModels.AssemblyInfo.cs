@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TaskMan.ViewModels")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0f37420f8d773bd62c17fa43204029a0ec17b260")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6b4493b0f4ab3683422a46b20ea39512d3755a63")]
 [assembly: System.Reflection.AssemblyProductAttribute("TaskMan.ViewModels")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TaskMan.ViewModels")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,10 +1,12 @@
 C:\Users\shreyas\Projects\Taskman\taskman\TaskMan.API\TaskMan.BusinessLogic\bin\Debug\net8.0\TaskMan.BusinessLogic.deps.json
 C:\Users\shreyas\Projects\Taskman\taskman\TaskMan.API\TaskMan.BusinessLogic\bin\Debug\net8.0\TaskMan.BusinessLogic.dll
 C:\Users\shreyas\Projects\Taskman\taskman\TaskMan.API\TaskMan.BusinessLogic\bin\Debug\net8.0\TaskMan.BusinessLogic.pdb
+C:\Users\shreyas\Projects\Taskman\taskman\TaskMan.API\TaskMan.BusinessLogic\bin\Debug\net8.0\TaskMan.BusinessObjects.dll
 C:\Users\shreyas\Projects\Taskman\taskman\TaskMan.API\TaskMan.BusinessLogic\bin\Debug\net8.0\TaskMan.DataAccess.dll
 C:\Users\shreyas\Projects\Taskman\taskman\TaskMan.API\TaskMan.BusinessLogic\bin\Debug\net8.0\TaskMan.ViewModels.dll
 C:\Users\shreyas\Projects\Taskman\taskman\TaskMan.API\TaskMan.BusinessLogic\bin\Debug\net8.0\TaskMan.DataAccess.pdb
 C:\Users\shreyas\Projects\Taskman\taskman\TaskMan.API\TaskMan.BusinessLogic\bin\Debug\net8.0\TaskMan.ViewModels.pdb
+C:\Users\shreyas\Projects\Taskman\taskman\TaskMan.API\TaskMan.BusinessLogic\bin\Debug\net8.0\TaskMan.BusinessObjects.pdb
 C:\Users\shreyas\Projects\Taskman\taskman\TaskMan.API\TaskMan.BusinessLogic\obj\Debug\net8.0\TaskMan.BusinessLogic.csproj.AssemblyReference.cache
 C:\Users\shreyas\Projects\Taskman\taskman\TaskMan.API\TaskMan.BusinessLogic\obj\Debug\net8.0\TaskMan.BusinessLogic.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\shreyas\Projects\Taskman\taskman\TaskMan.API\TaskMan.BusinessLogic\obj\Debug\net8.0\TaskMan.BusinessLogic.AssemblyInfoInputs.cache
@@ -16,5 +18,3 @@ C:\Users\shreyas\Projects\Taskman\taskman\TaskMan.API\TaskMan.BusinessLogic\obj\
 C:\Users\shreyas\Projects\Taskman\taskman\TaskMan.API\TaskMan.BusinessLogic\obj\Debug\net8.0\refint\TaskMan.BusinessLogic.dll
 C:\Users\shreyas\Projects\Taskman\taskman\TaskMan.API\TaskMan.BusinessLogic\obj\Debug\net8.0\TaskMan.BusinessLogic.pdb
 C:\Users\shreyas\Projects\Taskman\taskman\TaskMan.API\TaskMan.BusinessLogic\obj\Debug\net8.0\ref\TaskMan.BusinessLogic.dll
-C:\Users\shreyas\Projects\Taskman\taskman\TaskMan.API\TaskMan.BusinessLogic\bin\Debug\net8.0\TaskMan.BusinessObjects.dll
-C:\Users\shreyas\Projects\Taskman\taskman\TaskMan.API\TaskMan.BusinessLogic\bin\Debug\net8.0\TaskMan.BusinessObjects.pdb

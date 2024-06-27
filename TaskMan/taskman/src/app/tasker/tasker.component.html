@@ -1,0 +1,46 @@
+<div class="row">
+  <div class="col-3">
+    <button class="btn btn-primary" type="button" (click)="manageTask()" value="Filter Status">
+      Add Task
+    </button>
+  </div>
+</div>
+<div class="row">
+    <h3>Tasks</h3>
+</div>
+<div class="row">
+    <label>Status Filter</label>
+    <select class="form-control" formControlName="status" (change)="statusChangeFilter($event.target)">
+        <option *ngFor="let sts of taskStatus" [value]="sts">
+          {{ sts }}
+        </option>
+      </select>
+</div>
+<div class="row">    
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col" (click)="sortTasks('title')">Title</th>
+        <th scope="col" (click)="sortTasks('title')">Description</th>
+        <th scope="col" (click)="sortTasks('title')">Status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for(task of tasks; track task.title; let i = $index){
+      <tr>
+        <th scope="row">{{ i + 1 }}</th>
+        <td sortable="title">{{ task.title }}</td>
+        <td sortable="description">{{ task.description }}</td>
+        <td sortable="status">{{ task.status }}</td>
+        <td><a (click)="manageTask(task)">Edit</a> | <a (click)="deleteTask(task.id)">Delete</a></td>
+      </tr>
+      } @empty {
+      <tr colspan="5">
+        No Tasks Found
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>

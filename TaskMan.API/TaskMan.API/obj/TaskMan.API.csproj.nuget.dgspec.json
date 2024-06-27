@@ -34,6 +34,12 @@
               "C:\\Users\\shreyas\\Projects\\Taskman\\taskman\\TaskMan.API\\TaskMan.BusinessLogic\\TaskMan.BusinessLogic.csproj": {
                 "projectPath": "C:\\Users\\shreyas\\Projects\\Taskman\\taskman\\TaskMan.API\\TaskMan.BusinessLogic\\TaskMan.BusinessLogic.csproj"
               },
+              "C:\\Users\\shreyas\\Projects\\Taskman\\taskman\\TaskMan.API\\TaskMan.BusinessObjects\\TaskMan.BusinessObjects.csproj": {
+                "projectPath": "C:\\Users\\shreyas\\Projects\\Taskman\\taskman\\TaskMan.API\\TaskMan.BusinessObjects\\TaskMan.BusinessObjects.csproj"
+              },
+              "C:\\Users\\shreyas\\Projects\\Taskman\\taskman\\TaskMan.API\\TaskMan.DataAccess\\TaskMan.DataAccess.csproj": {
+                "projectPath": "C:\\Users\\shreyas\\Projects\\Taskman\\taskman\\TaskMan.API\\TaskMan.DataAccess\\TaskMan.DataAccess.csproj"
+              },
               "C:\\Users\\shreyas\\Projects\\Taskman\\taskman\\TaskMan.API\\TaskMan.ViewModels\\TaskMan.ViewModels.csproj": {
                 "projectPath": "C:\\Users\\shreyas\\Projects\\Taskman\\taskman\\TaskMan.API\\TaskMan.ViewModels\\TaskMan.ViewModels.csproj"
               }
@@ -68,6 +74,12 @@
               "noWarn": [
                 "NU1605"
               ]
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.6, )"
             },
             "Microsoft.Identity.Web": {
               "target": "Package",
@@ -381,6 +393,12 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[7.6.2, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

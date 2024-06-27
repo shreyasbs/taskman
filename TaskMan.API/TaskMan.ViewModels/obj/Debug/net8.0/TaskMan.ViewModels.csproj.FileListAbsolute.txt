@@ -1,6 +1,7 @@
 C:\Users\shreyas\Projects\Taskman\taskman\TaskMan.API\TaskMan.ViewModels\bin\Debug\net8.0\TaskMan.ViewModels.deps.json
 C:\Users\shreyas\Projects\Taskman\taskman\TaskMan.API\TaskMan.ViewModels\bin\Debug\net8.0\TaskMan.ViewModels.dll
 C:\Users\shreyas\Projects\Taskman\taskman\TaskMan.API\TaskMan.ViewModels\bin\Debug\net8.0\TaskMan.ViewModels.pdb
+C:\Users\shreyas\Projects\Taskman\taskman\TaskMan.API\TaskMan.ViewModels\obj\Debug\net8.0\TaskMan.ViewModels.csproj.AssemblyReference.cache
 C:\Users\shreyas\Projects\Taskman\taskman\TaskMan.API\TaskMan.ViewModels\obj\Debug\net8.0\TaskMan.ViewModels.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\shreyas\Projects\Taskman\taskman\TaskMan.API\TaskMan.ViewModels\obj\Debug\net8.0\TaskMan.ViewModels.AssemblyInfoInputs.cache
 C:\Users\shreyas\Projects\Taskman\taskman\TaskMan.API\TaskMan.ViewModels\obj\Debug\net8.0\TaskMan.ViewModels.AssemblyInfo.cs

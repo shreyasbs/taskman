@@ -8,7 +8,7 @@ namespace TaskMan.BusinessObjects
 {
     public enum TaskStatus : int
     {
-        Todo = 1, InProgress = 2, Done = 3
+        Todo = 1, InProgress = 2, Done = 3, All =4
 
     }
 }

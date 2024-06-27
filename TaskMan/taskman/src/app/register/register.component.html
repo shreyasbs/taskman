@@ -1,0 +1,125 @@
+<div class="card">
+  <div class="card-body">
+    <div class="card-title">Register</div>
+    <form [formGroup]="registerForm">
+      <div class="form-group">
+        <label for="exampleFormControlInput1">First Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="exampleFormControlInput1"
+          placeholder="Enter First name"
+          formControlName="firstName"
+        />
+        <div
+          class="red-text"
+          *ngIf="
+            registerFormGroup['firstName'].invalid &&
+            (registerFormGroup['firstName'].dirty ||
+              registerFormGroup['firstName'].touched)
+          "
+        >
+          <div
+            *ngIf="
+              registerFormGroup['firstName'].errors &&
+              registerFormGroup['firstName'].value.length == 0
+            "
+          >
+            First Name is required.
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlInput1">Last Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="exampleFormControlInput2"
+          placeholder="Enter Last name"
+          formControlName="lastName"
+        />
+        <div
+          class="red-text"
+          *ngIf="
+            registerFormGroup['lastName'].invalid &&
+            (registerFormGroup['lastName'].dirty ||
+              registerFormGroup['lastName'].touched)
+          "
+        >
+          <div
+            *ngIf="
+              registerFormGroup['lastName'].errors &&
+              registerFormGroup['lastName'].value.length == 0
+            "
+          >
+            Last Name is required.
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input
+          type="email"
+          class="form-control"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+          placeholder="Enter email"
+          formControlName="email"
+        />
+        <div
+          class="red-text"
+          *ngIf="
+            registerFormGroup['email'].invalid &&
+            (registerFormGroup['email'].dirty ||
+              registerFormGroup['email'].touched)
+          "
+        >
+          <div
+            *ngIf="
+              registerFormGroup['email'].errors &&
+              registerFormGroup['email'].value.length == 0
+            "
+          >
+            Email is required.
+          </div>
+          <div [hidden]="!registerFormGroup['email'].errors">
+            Invalid Email.
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="exampleInputPassword1"
+          placeholder="Password"
+          formControlName="password"
+        />
+        <div
+          class="red-text"
+          *ngIf="
+            registerFormGroup['password'].invalid &&
+            (registerFormGroup['password'].dirty ||
+              registerFormGroup['password'].touched)
+          "
+        >
+          <div
+            *ngIf="
+              registerFormGroup['email'].errors &&
+              registerFormGroup['password'].value.length == 0
+            "
+          >
+            Password is required.
+          </div>
+        </div>
+      </div>
+
+      <br />
+      <button type="submit" class="btn btn-primary" (click)="register()">
+        Submit
+      </button>
+    </form>
+  </div>
+  <div class="card-footer">Already have an account ? <a href="">Login</a></div>
+</div>

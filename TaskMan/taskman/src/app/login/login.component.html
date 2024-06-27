@@ -1,0 +1,69 @@
+<div class="row">
+  <div class="clr-col-12">
+    <div class="card mb-3">
+      <div class="card-body">
+        <div class="card-title">Login</div>
+        <form [formGroup]="loginForm">
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              name="email"
+              formControlName="email"
+              value="email"
+              aria-describedby="emailHelp"
+              placeholder="Enter email"
+            />
+            <div
+              class="red-text"
+              *ngIf="
+                loginFormGroup['email'].invalid &&
+                (loginFormGroup['email'].dirty ||
+                  loginFormGroup['email'].touched)
+              "
+            >
+              <div *ngIf="loginFormGroup['email'].errors && loginFormGroup['email'].value.length == 0">
+                Email is required.
+              </div>
+              <div [hidden]="!loginFormGroup['email'].errors">
+                Invalid Email.
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input
+              formControlName="password"
+              type="password"
+              class="form-control"
+              id="password"
+              placeholder="Password"
+              value="password"
+            />
+            <div
+              class="red-text"
+              *ngIf="
+                loginFormGroup['password'].invalid &&
+                (loginFormGroup['password'].dirty ||
+                  loginFormGroup['password'].touched)
+              "
+            >
+              <div *ngIf="loginFormGroup['password'].errors">
+                Password is required.
+              </div>
+            </div>
+          </div>
+          <br />
+          <button type="submit" class="btn btn-primary" (click)="login()">
+            Submit
+          </button>
+        </form>
+      </div>
+      <div class="card-footer">
+        Do Not have an account ? <a href="/register">Register</a>
+      </div>
+    </div>
+  </div>
+</div>

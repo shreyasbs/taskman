@@ -1,0 +1,12 @@
+
+<div class="container">
+  <nav class="navbar navbar-expand-lg" style="background-color: #e3f2fd">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/"><b>Task Man</b></a>
+      <span class="navbar-text" *ngIf="isAuthenticated">
+        <button class="btn btn-link">Logout</button>
+      </span>
+    </div>
+  </nav>
+  <router-outlet />
+</div>

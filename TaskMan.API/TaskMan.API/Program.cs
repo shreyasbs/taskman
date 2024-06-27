@@ -9,6 +9,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Data;
 using System.Text;
 using TaskMan.BusinessObjects;
+using TaskMan.BusinessLogic;
 
 var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 var builder = WebApplication.CreateBuilder(args);
@@ -31,16 +32,19 @@ builder.Services.AddCors(options =>
             .Build();
     });
 });
+
+//builder.Services.AddSingleton<TaskDataContext>();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-
+builder.Services.AddScoped<ITaskBL, TaskBL>();
+builder.Services.AddScoped<ITaskRepository, TaskRepository>();
 builder.Services.AddDbContext<TaskDataContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-builder.Services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<TaskDataContext>().AddDefaultTokenProviders();
+builder.Services.AddIdentity<ApplicationUser, IdentityRole<Guid>>().AddEntityFrameworkStores<TaskDataContext>().AddDefaultTokenProviders();
 
 builder.Services.AddAuthentication(options =>
 {

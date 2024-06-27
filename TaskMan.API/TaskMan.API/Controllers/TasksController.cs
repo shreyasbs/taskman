@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using TaskMan.BusinessLogic;
@@ -6,9 +7,10 @@ using TaskMan.ViewModels;
 
 namespace TaskMan.API.Controllers
 {
+    [AllowAnonymous]
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+
     public class TasksController : ControllerBase
     {
         private ITaskBL taskBL;
@@ -18,6 +20,7 @@ namespace TaskMan.API.Controllers
         }
         [HttpGet]
         [Route("GetTasks")]
+        [Authorize]
         public ActionResult<List<TaskViewModel>> GetTasks()
         {
             var tasks = taskBL.GetAllTasks();
@@ -30,6 +33,43 @@ namespace TaskMan.API.Controllers
         {
             var task = taskBL.GetTask(id);
             return Ok(task);
+        }
+
+        [HttpGet]
+        [Route("GetTaskStatus")]
+        public ActionResult GetTaskStatus()
+        {
+            var taskStatus = Enum.GetNames(typeof(BusinessObjects.TaskStatus)).ToList();
+            return Ok(taskStatus);
+        }
+
+        [HttpPost]
+        [Route("PostTask")]
+        public ActionResult PostTask([FromBody] TaskViewModel taskViewModel)
+        {
+            if (ModelState.IsValid)
+            {
+                if (taskViewModel == null) { return BadRequest(ModelState); }
+                if (String.IsNullOrEmpty(taskViewModel.Id))
+                {
+                    taskBL.Insert(taskViewModel);
+                }
+                else
+                {
+                    taskBL.Update(taskViewModel);
+                }
+
+                return Ok();
+            }
+            return BadRequest(ModelState);
+        }
+
+        [HttpDelete]
+        [Route("DeleteTask")]
+        public ActionResult DeleteTask(string id)
+        {
+            taskBL.DeleteTask(id);
+            return Ok();
         }
     }
 }

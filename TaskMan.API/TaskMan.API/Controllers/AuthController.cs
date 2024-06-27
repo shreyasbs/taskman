@@ -34,23 +34,14 @@ namespace TaskMan.API.Controllers
                 var user = await userManager.FindByEmailAsync(loginViewModel.Email);
                 if (user != null && await userManager.CheckPasswordAsync(user, loginViewModel.Password))
                 {
-                    var authClaims = new List<Claim>
-                    {
-                        new Claim(ClaimTypes.NameIdentifier,user.Id.ToString()),
-                        new Claim(JwtRegisteredClaimNames.Jti,Guid.NewGuid().ToString())
-                    };
 
-                    var token = await GetToken(authClaims);
+                    var token = await GetToken();
 
 
-                    return Ok(new
-                    {
-                        token = token,
-                        id = user.Id
-                    });
+                    return Ok(token);
                 }
             }
-            return BadRequest(ModelState);
+            return Unauthorized();
 
         }
 
@@ -72,7 +63,8 @@ namespace TaskMan.API.Controllers
                     {
                         FirstName = registerViewModel.FirstName,
                         LastName = registerViewModel.LastName,
-                        Email = registerViewModel.Email
+                        Email = registerViewModel.Email,
+                        UserName = registerViewModel.Email.Split("@")[0]
                     };
                     var result = await userManager.CreateAsync(userDo, registerViewModel.Password);
                     if (result.Succeeded)
@@ -90,7 +82,20 @@ namespace TaskMan.API.Controllers
 
         }
 
-        private async Task<string> GetToken(List<Claim> authClaims)
+        [HttpPost("refresh-token")]
+        public IActionResult RefreshToken([FromBody] TokenRequestViewModel request)
+        {
+            var principal = GetPrincipal(request.Token);
+            if (principal == null)
+            {
+                return Unauthorized();
+            }
+
+            var tokens = GetToken();
+            return Ok(tokens);
+        }
+
+        private async Task<TokenResponseViewModel> GetToken()
         {
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("This is a 126 bit string sentence."));
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
@@ -98,17 +103,46 @@ namespace TaskMan.API.Controllers
             var secToken = new JwtSecurityToken(_configuration["Jwt:Issuer"],
                 _configuration["Jwt:Issuer"],
                 expires: DateTime.Now.AddMinutes(30),
-                claims: authClaims,
+                signingCredentials: credentials);
+            var refreshToken = new JwtSecurityToken(_configuration["Jwt:Issuer"],
+                _configuration["Jwt:Issuer"],
+                expires: DateTime.Now.AddDays(7),
                 signingCredentials: credentials);
             try
             {
-                var token = new JwtSecurityTokenHandler().WriteToken(secToken);
-                return token;
+                var tokenResponse = new TokenResponseViewModel();
+                tokenResponse.AccessToken = new JwtSecurityTokenHandler().WriteToken(secToken);
+                tokenResponse.RefreshToken = new JwtSecurityTokenHandler().WriteToken(refreshToken);
+
+                return tokenResponse;
             }
             catch (Exception e)
             {
                 throw;
             }
+        }
+
+        private ClaimsPrincipal GetPrincipal(string token)
+        {
+            var tokenValidationParameters = new TokenValidationParameters
+            {
+                ValidateIssuer = false,
+                ValidateAudience = false,
+                ValidateLifetime = false,
+                ValidateIssuerSigningKey = true,
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]))
+            };
+            var tokenHandler = new JwtSecurityTokenHandler();
+            SecurityToken securityToken;
+            var principal = tokenHandler.ValidateToken(token, tokenValidationParameters, out securityToken);
+            var jwtSecurityToken = securityToken as JwtSecurityToken;
+
+            if (jwtSecurityToken == null || !jwtSecurityToken.Header.Alg.Equals(SecurityAlgorithms.HmacSha256, StringComparison.InvariantCultureIgnoreCase))
+            {
+                throw new SecurityTokenException("Invalid token");
+            }
+
+            return principal;
         }
 
     }
