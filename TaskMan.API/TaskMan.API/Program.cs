@@ -71,6 +71,24 @@ builder.Services.AddAuthentication(options =>
 
 var app = builder.Build();
 
+// Ensure database is created
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    try
+    {
+        var context = services.GetRequiredService<TaskDataContext>();
+        // Ensures that the database for the context does not exist. If it does not exist, no operation is performed.
+        context.Database.EnsureCreated(); // or context.Database.Migrate();
+    }
+    catch (Exception ex)
+    {
+        // Log the error here
+        var logger = services.GetRequiredService<ILogger<Program>>();
+        logger.LogError(ex, "An error occurred creating the DB.");
+    }
+}
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
