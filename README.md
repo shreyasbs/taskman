@@ -1,4 +1,4 @@
-# taskman
+# TaskMan
 ## Overview
 
 Task Management Software is a simple and efficient application designed to help users manage their tasks. It provides functionalities to create, update, and delete tasks, ensuring an organized and productive workflow.
@@ -49,6 +49,7 @@ Run the application:
 dotnet run
 
 3. Frontend Setup
+   
  cd TaskMan
  
  Install dependencies:
