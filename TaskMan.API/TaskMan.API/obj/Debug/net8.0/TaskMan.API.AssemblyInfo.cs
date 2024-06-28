@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TaskMan.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+36f9cc4450bc7e1f6b841735d2fb835fd0f2f090")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a40b37d8b6567902daf22b75a2db20b75ec50edd")]
 [assembly: System.Reflection.AssemblyProductAttribute("TaskMan.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TaskMan.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

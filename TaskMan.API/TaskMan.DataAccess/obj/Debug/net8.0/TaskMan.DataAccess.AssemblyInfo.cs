@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TaskMan.DataAccess")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6b4493b0f4ab3683422a46b20ea39512d3755a63")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a40b37d8b6567902daf22b75a2db20b75ec50edd")]
 [assembly: System.Reflection.AssemblyProductAttribute("TaskMan.DataAccess")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TaskMan.DataAccess")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

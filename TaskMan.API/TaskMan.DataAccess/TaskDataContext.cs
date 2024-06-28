@@ -12,6 +12,7 @@ namespace TaskMan.DataAccess
 
         public TaskDataContext(DbContextOptions<TaskDataContext> options) : base(options) { }
         public DbSet<BusinessObjects.Task> Tasks { get; set; }
+        public DbSet<RefreshToken> RefreshTokens { get; set; }  
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

@@ -2,14 +2,15 @@
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.IdentityModel.Tokens.Jwt;
 using TaskMan.BusinessLogic;
 using TaskMan.ViewModels;
 
 namespace TaskMan.API.Controllers
 {
     [AllowAnonymous]
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("api/[controller]")]
 
     public class TasksController : ControllerBase
     {
@@ -50,6 +51,8 @@ namespace TaskMan.API.Controllers
             if (ModelState.IsValid)
             {
                 if (taskViewModel == null) { return BadRequest(ModelState); }
+                taskViewModel.UserId = Guid.Parse(User.FindFirst(JwtRegisteredClaimNames.Sub)?.Value);
+
                 if (String.IsNullOrEmpty(taskViewModel.Id))
                 {
                     taskBL.Insert(taskViewModel);

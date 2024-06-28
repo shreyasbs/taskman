@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Data;
 using System.IdentityModel.Tokens.Jwt;
@@ -9,6 +10,7 @@ using System.Security.Claims;
 using System.Text;
 using TaskMan.BusinessLogic;
 using TaskMan.BusinessObjects;
+using TaskMan.DataAccess;
 using TaskMan.ViewModels;
 
 namespace TaskMan.API.Controllers
@@ -19,10 +21,12 @@ namespace TaskMan.API.Controllers
     {
         private readonly UserManager<ApplicationUser> userManager;
         private readonly IConfiguration _configuration;
-        public AuthController(UserManager<ApplicationUser> user, IConfiguration configuration)
+        private readonly TaskDataContext taskDataContext;
+        public AuthController(UserManager<ApplicationUser> user, IConfiguration configuration, TaskDataContext _taskDataContext)
         {
             userManager = user;
             _configuration = configuration;
+            taskDataContext = _taskDataContext;
         }
 
         [HttpPost]
@@ -35,7 +39,7 @@ namespace TaskMan.API.Controllers
                 if (user != null && await userManager.CheckPasswordAsync(user, loginViewModel.Password))
                 {
 
-                    var token = await GetToken();
+                    var token = await GetToken(user.Id.ToString(), user.UserName, user.Email);
 
 
                     return Ok(token);
@@ -85,34 +89,55 @@ namespace TaskMan.API.Controllers
         [HttpPost("refresh-token")]
         public IActionResult RefreshToken([FromBody] TokenRequestViewModel request)
         {
-            var principal = GetPrincipal(request.Token);
+            var principal = GetPrincipal(request.AccessToken);
             if (principal == null)
             {
                 return Unauthorized();
             }
 
-            var tokens = GetToken();
-            return Ok(tokens);
+            var userId = principal.FindFirst(JwtRegisteredClaimNames.Sub)?.Value;
+            var userName = principal.FindFirst(JwtRegisteredClaimNames.UniqueName)?.Value;
+            var email = principal.FindFirst(JwtRegisteredClaimNames.Email)?.Value;
+
+            var storedRefreshToken = taskDataContext.RefreshTokens.SingleOrDefault(rt => rt.Token == request.RefreshToken);
+            if (storedRefreshToken == null || storedRefreshToken.ExpiryDate < DateTime.UtcNow)
+            {
+                return Unauthorized();
+            }
+
+            var tokenResponse = GetToken(userId, userName, email);
+
+            // Update the refresh token in your data store
+            storedRefreshToken.Token = GenerateRefreshToken();
+            storedRefreshToken.ExpiryDate = DateTime.UtcNow.AddDays(30); // Set new expiry date
+
+            taskDataContext.SaveChanges();
+            return Ok(tokenResponse);
         }
 
-        private async Task<TokenResponseViewModel> GetToken()
+        private async Task<TokenResponseViewModel> GetToken(string userId, string userName, string email)
         {
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("This is a 126 bit string sentence."));
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 
+            var claims = new[]
+            {
+               new Claim(JwtRegisteredClaimNames.Sub, userId),
+               new Claim(JwtRegisteredClaimNames.UniqueName, userName),
+               new Claim(JwtRegisteredClaimNames.Email,email),
+               new Claim(JwtRegisteredClaimNames.Jti,Guid.NewGuid().ToString())
+           };
+
             var secToken = new JwtSecurityToken(_configuration["Jwt:Issuer"],
                 _configuration["Jwt:Issuer"],
+                claims: claims,
                 expires: DateTime.Now.AddMinutes(30),
-                signingCredentials: credentials);
-            var refreshToken = new JwtSecurityToken(_configuration["Jwt:Issuer"],
-                _configuration["Jwt:Issuer"],
-                expires: DateTime.Now.AddDays(7),
                 signingCredentials: credentials);
             try
             {
                 var tokenResponse = new TokenResponseViewModel();
                 tokenResponse.AccessToken = new JwtSecurityTokenHandler().WriteToken(secToken);
-                tokenResponse.RefreshToken = new JwtSecurityTokenHandler().WriteToken(refreshToken);
+                tokenResponse.RefreshToken = GenerateRefreshToken();
 
                 return tokenResponse;
             }
@@ -120,6 +145,11 @@ namespace TaskMan.API.Controllers
             {
                 throw;
             }
+        }
+
+        public string GenerateRefreshToken()
+        {
+            return Convert.ToBase64String(Guid.NewGuid().ToByteArray());
         }
 
         private ClaimsPrincipal GetPrincipal(string token)

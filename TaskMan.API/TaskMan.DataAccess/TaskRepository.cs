@@ -13,7 +13,7 @@ namespace TaskMan.DataAccess
         public TaskRepository(TaskDataContext _taskDataContext)
         {
             taskDataContext = _taskDataContext;
-        }   
+        }
 
         public BusinessObjects.Task GetTask(Guid id)
         {
@@ -32,9 +32,13 @@ namespace TaskMan.DataAccess
         public void InsertTask(TaskViewModel taskViewModel)
         {
             var task = new BusinessObjects.Task();
+            task.CreatedBy = taskViewModel.UserId;
+            task.ModifiedBy = taskViewModel.UserId;
+            task.CreatedDate = DateTime.Now;
+            task.ModifiedDate = DateTime.Now;
             task.Title = taskViewModel.Title;
             task.Description = taskViewModel.Description;
-            task.Status = (BusinessObjects.TaskStatus) Enum.Parse(typeof(BusinessObjects.TaskStatus), taskViewModel.Status);
+            task.Status = (BusinessObjects.TaskStatus)Enum.Parse(typeof(BusinessObjects.TaskStatus), taskViewModel.Status);
             taskDataContext.Tasks.Add(task);
             SaveChanges();
         }
@@ -47,23 +51,23 @@ namespace TaskMan.DataAccess
 
         public void UpdateTask(TaskViewModel taskViewModel)
         {
-            var task = taskDataContext.Tasks.FirstOrDefault(x=>x.Id == Guid.Parse(taskViewModel.Id));
-            if(task != null)
+            var task = taskDataContext.Tasks.FirstOrDefault(x => x.Id == Guid.Parse(taskViewModel.Id));
+            if (task != null)
             {
                 task.Title = taskViewModel.Title;
                 task.Description = taskViewModel.Description;
+                task.ModifiedBy = taskViewModel.UserId;
+                task.ModifiedDate = DateTime.Now;
                 task.Status = (BusinessObjects.TaskStatus)Enum.Parse(typeof(BusinessObjects.TaskStatus), taskViewModel.Status);
                 taskDataContext.Entry(task).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
                 SaveChanges();
             }
-
-            
         }
 
         public void DeleteTask(Guid guid)
         {
-            var task = taskDataContext.Tasks.FirstOrDefault(x =>  x.Id == guid);
-            if(task != null)
+            var task = taskDataContext.Tasks.FirstOrDefault(x => x.Id == guid);
+            if (task != null)
             {
                 taskDataContext.Remove(task);
                 SaveChanges();
